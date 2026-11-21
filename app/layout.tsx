@@ -16,7 +16,7 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   title: "Edoardo Pallaoro, Photography",
   description:
-    "Edoardo Pallaoro is a fashion and editorial photographer. Selected work for Kaltblut Magazine, Tinted Issue, Vanguard Magazine, LE Management and Vero Model Management.",
+    "Edoardo Pallaoro is a fashion and portrait photographer. Selected work for Kaltblut Magazine, Tinted Issue, Vanguard Magazine, LE Management and Vero Model Management.",
 };
 
 export const viewport: Viewport = {

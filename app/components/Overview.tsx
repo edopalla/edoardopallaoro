@@ -14,7 +14,7 @@ export function Overview({ projects, focus }: { projects: Project[]; focus: Focu
 
   return (
     <main className="relative flex flex-col [--stack-top:3rem] lg:[--stack-top:1rem]">
-      <h1 className="sr-only">Edoardo Pallaoro, fashion and editorial photography</h1>
+      <h1 className="sr-only">Edoardo Pallaoro, fashion and portrait photographer</h1>
       {projects.map((project, index) => {
         const cover = project.photos[project.cover ?? 0];
         return (

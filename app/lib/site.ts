@@ -1,6 +1,6 @@
 export const site = {
   name: "Edoardo Pallaoro",
-  discipline: "Fashion & editorial photography",
+  discipline: "Fashion and Portrait Photographer",
   email: "hello@edoardopallaoro.com",
 };
 

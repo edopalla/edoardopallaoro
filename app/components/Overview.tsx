@@ -35,12 +35,12 @@ export function Overview({ projects }: { projects: Project[] }) {
 
             <h2
               style={{ top: `calc(var(--stack-top) + ${index * stackStep}px)` }}
-              className="pointer-events-none sticky z-30 mt-12 flex h-0 justify-center px-4 text-white mix-blend-difference"
+              className="pointer-events-none sticky z-30 mt-12 flex h-0 items-start justify-center px-4 text-white mix-blend-difference"
             >
               <button
                 type="button"
                 onClick={() => jumpTo(project.slug)}
-                className="pointer-events-auto truncate text-[15px] leading-none"
+                className="pointer-events-auto max-w-full truncate text-[15px] leading-tight"
               >
                 {project.title}
               </button>

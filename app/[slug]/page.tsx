@@ -88,7 +88,7 @@ export default async function ProjectPage(props: PageProps<"/[slug]">) {
           />
           <span className="text-[clamp(1.5rem,3vw,2.25rem)] leading-tight">{next.title}</span>
         </Link>
-        <Link href="/contents" className="text-[13px] underline-offset-2 hover:underline">
+        <Link href="/stories" className="text-[13px] underline-offset-2 hover:underline">
           All stories
         </Link>
       </nav>

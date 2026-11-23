@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { photoCount, projects } from "../lib/projects";
 import { site } from "../lib/site";
 
 const corner = "fixed z-40 text-white mix-blend-difference";
@@ -27,17 +26,22 @@ export function Frame() {
           Overview
         </NavLink>
         <span aria-hidden="true">/</span>
-        <NavLink href="/contents" active={pathname.startsWith("/contents")}>
-          Contents
+        <NavLink href="/stories" active={pathname.startsWith("/stories")}>
+          Stories
         </NavLink>
       </nav>
 
-      <Link href="/contents" className={`${corner} bottom-4 left-5 hidden items-baseline gap-2 lg:flex`}>
-        <span className="label">Archive</span>
-        <span className="text-[13px] leading-none">
-          {projects.length} stories, {photoCount} images
-        </span>
-      </Link>
+      <div className={`${corner} bottom-4 left-5 hidden items-baseline gap-2 lg:flex`}>
+        <span className="label">Instagram</span>
+        <a
+          href={`https://www.instagram.com/${site.instagram}/`}
+          target="_blank"
+          rel="noreferrer"
+          className="text-[13px] leading-none underline-offset-2 hover:underline"
+        >
+          @{site.instagram}
+        </a>
+      </div>
 
       <div className={`${corner} right-5 bottom-4 hidden items-baseline gap-2 lg:flex`}>
         <span className="label">E.</span>

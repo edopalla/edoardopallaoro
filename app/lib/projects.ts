@@ -110,8 +110,6 @@ export const projects: Project[] = [
   },
 ];
 
-export const photoCount = projects.reduce((total, project) => total + project.photos.length, 0);
-
 export function findProject(slug: string) {
   return projects.find((project) => project.slug === slug);
 }

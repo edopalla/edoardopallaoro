@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { photoCount, projects } from "../lib/projects";
 import { site } from "../lib/site";
 
 export function Footer() {
@@ -8,10 +6,14 @@ export function Footer() {
       <a href={`mailto:${site.email}`} className="underline-offset-2 hover:underline">
         {site.email}
       </a>
-      <Link href="/contents" className="flex items-baseline gap-2">
-        <span className="label">Archive</span>
-        {projects.length} stories, {photoCount} images
-      </Link>
+      <a
+        href={`https://www.instagram.com/${site.instagram}/`}
+        target="_blank"
+        rel="noreferrer"
+        className="underline-offset-2 hover:underline"
+      >
+        @{site.instagram}
+      </a>
       <p className="text-muted">© {site.name}</p>
     </footer>
   );

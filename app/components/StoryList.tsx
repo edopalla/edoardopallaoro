@@ -6,12 +6,12 @@ import { useState } from "react";
 import type { Project } from "../lib/projects";
 import { padCount } from "../lib/site";
 
-export function ProjectIndex({ projects }: { projects: Project[] }) {
+export function StoryList({ projects }: { projects: Project[] }) {
   const [activeSlug, setActiveSlug] = useState<string | null>(null);
 
   return (
     <main className="relative flex min-h-svh items-center justify-center px-4 py-28">
-      <h1 className="sr-only">Contents</h1>
+      <h1 className="sr-only">Stories</h1>
       <div aria-hidden="true" className="fixed inset-0 hidden pointer-fine:block">
         {projects.map((project) => (
           <Image

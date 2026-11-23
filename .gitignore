@@ -45,3 +45,10 @@ next-env.d.ts
 *.md
 /SnapInsta*.mp4
 .wrangler/
+
+# sanity
+/public/cms/
+/app/lib/content.json
+/studio/node_modules/
+/studio/dist/
+/studio/.sanity/

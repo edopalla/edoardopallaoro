@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { findProject, projects } from "../lib/projects";
-import { padCount } from "../lib/site";
+import { findProject, padCount, projects } from "../lib/content";
 
 export const dynamicParams = false;
 
@@ -15,7 +14,7 @@ export async function generateMetadata(props: PageProps<"/[slug]">): Promise<Met
   const { slug } = await props.params;
   const project = findProject(slug);
   if (!project) return {};
-  const cover = project.photos[project.cover ?? 0];
+  const cover = project.cover;
   return {
     title: project.title,
     description: `${project.title}${project.story ? `, ${project.story}` : ""}. ${project.category} by Edoardo Pallaoro, ${project.photos.length} images.`,
@@ -30,7 +29,7 @@ export default async function ProjectPage(props: PageProps<"/[slug]">) {
 
   const position = projects.indexOf(project);
   const next = projects[(position + 1) % projects.length];
-  const nextCover = next.photos[next.cover ?? 0];
+  const nextCover = next.cover;
   const total = project.photos.length;
 
   return (

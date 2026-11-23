@@ -3,8 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import type { Project } from "../lib/projects";
-import { padCount } from "../lib/site";
+import { type Project, padCount } from "../lib/content";
 
 export function StoryList({ projects }: { projects: Project[] }) {
   const [activeSlug, setActiveSlug] = useState<string | null>(null);
@@ -16,10 +15,11 @@ export function StoryList({ projects }: { projects: Project[] }) {
         {projects.map((project) => (
           <Image
             key={project.slug}
-            src={project.photos[project.cover ?? 0].src}
+            src={project.cover.src}
             alt=""
             fill
             sizes="100vw"
+            style={{ objectPosition: project.cover.position }}
             className={`object-cover transition-opacity duration-700 ease-out ${
               activeSlug === project.slug ? "opacity-100" : "opacity-0"
             }`}
@@ -32,7 +32,7 @@ export function StoryList({ projects }: { projects: Project[] }) {
         className="relative z-10 flex w-full max-w-xl flex-col gap-5 text-ink pointer-fine:w-auto pointer-fine:text-white pointer-fine:mix-blend-difference pointer-fine:gap-1.5"
       >
         {projects.map((project) => {
-          const cover = project.photos[project.cover ?? 0];
+          const cover = project.cover;
           return (
             <li key={project.slug}>
               <Link
@@ -48,6 +48,7 @@ export function StoryList({ projects }: { projects: Project[] }) {
                   height={cover.height}
                   alt=""
                   sizes="96px"
+                  style={{ objectPosition: cover.position }}
                   className="h-20 w-16 shrink-0 object-cover pointer-fine:hidden"
                 />
                 <span className="flex flex-col gap-1.5 pointer-fine:flex-row pointer-fine:items-baseline pointer-fine:gap-2">

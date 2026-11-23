@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { site } from "../lib/site";
+import { site } from "../lib/content";
 
 const corner = "fixed z-40 text-white mix-blend-difference";
 

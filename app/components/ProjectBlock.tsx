@@ -3,8 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import type { Project } from "../lib/projects";
-import { padCount } from "../lib/site";
+import { type Project, padCount } from "../lib/content";
 
 type Side = "previous" | "next";
 

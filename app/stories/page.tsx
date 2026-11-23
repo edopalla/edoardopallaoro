@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { StoryList } from "../components/StoryList";
-import { projects } from "../lib/projects";
+import { projects } from "../lib/content";
 
 export const metadata: Metadata = {
   title: "Stories",

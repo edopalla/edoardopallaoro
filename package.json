@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "content": "node scripts/fetch-content.mjs",
+    "predev": "node scripts/fetch-content.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/fetch-content.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "images": "sh scripts/image-variants.sh"
+    "lint": "eslint"
   },
   "dependencies": {
     "next": "16.4.6",

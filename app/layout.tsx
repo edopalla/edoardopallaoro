@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, EB_Garamond } from "next/font/google";
 import { Footer } from "./components/Footer";
 import { Frame } from "./components/Frame";
-import { site } from "./lib/site";
+import { site } from "./lib/content";
 import "./globals.css";
 
 const garamond = EB_Garamond({
@@ -21,8 +21,7 @@ export const metadata: Metadata = {
     default: `${site.name}, Photography`,
     template: `%s, ${site.name}`,
   },
-  description:
-    "Edoardo Pallaoro is a fashion and portrait photographer. Selected work for Kaltblut Magazine, Tinted Issue, Vanguard Magazine, LE Management and Vero Model Management.",
+  description: site.description,
 };
 
 export const viewport: Viewport = {

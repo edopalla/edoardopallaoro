@@ -1,0 +1,6 @@
+import { project } from "./project";
+import { siteSettings } from "./siteSettings";
+
+export const schemaTypes = [project, siteSettings];
+
+export const singletonTypes = new Set(["siteSettings"]);

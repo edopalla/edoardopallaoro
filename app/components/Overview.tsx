@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
-import type { Project } from "../lib/projects";
+import type { Project } from "../lib/content";
 import { ProjectBlock } from "./ProjectBlock";
 
 const stackStep = 19;
@@ -15,7 +15,7 @@ export function Overview({ projects }: { projects: Project[] }) {
     <main className="relative flex flex-col [--stack-top:3rem] lg:[--stack-top:1rem]">
       <h1 className="sr-only">Edoardo Pallaoro, fashion and portrait photographer</h1>
       {projects.map((project, index) => {
-        const cover = project.photos[project.cover ?? 0];
+        const cover = project.cover;
         return (
           <Fragment key={project.slug}>
             <figure className="shrink-0 snap-start">

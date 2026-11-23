@@ -1,6 +1,6 @@
-import { HomeView } from "./components/HomeView";
+import { Overview } from "./components/Overview";
 import { projects } from "./lib/projects";
 
 export default function Home() {
-  return <HomeView projects={projects} />;
+  return <Overview projects={projects} />;
 }

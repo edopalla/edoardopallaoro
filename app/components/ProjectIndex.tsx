@@ -1,21 +1,18 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 import type { Project } from "../lib/projects";
 import { padCount } from "../lib/site";
 
-type ProjectIndexProps = {
-  projects: Project[];
-  activeSlug: string | null;
-  onHover: (slug: string | null) => void;
-  onOpen: (slug: string) => void;
-};
+export function ProjectIndex({ projects }: { projects: Project[] }) {
+  const [activeSlug, setActiveSlug] = useState<string | null>(null);
 
-export function ProjectIndex({ projects, activeSlug, onHover, onOpen }: ProjectIndexProps) {
   return (
-    <main className="relative flex h-svh items-center justify-center overflow-hidden px-4">
-      <h1 className="sr-only">Index of work by Edoardo Pallaoro</h1>
-      <div aria-hidden="true" className="fixed inset-0">
+    <main className="relative flex min-h-svh items-center justify-center px-4 py-28">
+      <h1 className="sr-only">Contents</h1>
+      <div aria-hidden="true" className="fixed inset-0 hidden pointer-fine:block">
         {projects.map((project) => (
           <Image
             key={project.slug}
@@ -31,24 +28,35 @@ export function ProjectIndex({ projects, activeSlug, onHover, onOpen }: ProjectI
       </div>
 
       <ol
-        onMouseLeave={() => onHover(null)}
-        className="relative z-10 flex flex-col gap-1.5 text-white mix-blend-difference"
+        onMouseLeave={() => setActiveSlug(null)}
+        className="relative z-10 flex w-full max-w-xl flex-col gap-5 text-ink pointer-fine:w-auto pointer-fine:text-white pointer-fine:mix-blend-difference pointer-fine:gap-1.5"
       >
         {projects.map((project) => {
+          const cover = project.photos[project.cover ?? 0];
           return (
             <li key={project.slug}>
-              <button
-                type="button"
-                onMouseEnter={() => onHover(project.slug)}
-                onFocus={() => onHover(project.slug)}
-                onClick={() => onOpen(project.slug)}
-                className="flex items-baseline gap-x-2 text-left outline-none"
+              <Link
+                href={`/${project.slug}`}
+                onMouseEnter={() => setActiveSlug(project.slug)}
+                onFocus={() => setActiveSlug(project.slug)}
+                onBlur={() => setActiveSlug(null)}
+                className="flex items-center gap-4 pointer-fine:items-baseline pointer-fine:gap-2"
               >
-                <span className="text-[clamp(1.25rem,2.4vw,1.75rem)] leading-tight">{project.title}</span>
-                <span className="label tabular-nums">
-                  {project.category}, {padCount(project.photos.length)}
+                <Image
+                  src={cover.src}
+                  width={cover.width}
+                  height={cover.height}
+                  alt=""
+                  sizes="96px"
+                  className="h-20 w-16 shrink-0 object-cover pointer-fine:hidden"
+                />
+                <span className="flex flex-col gap-1.5 pointer-fine:flex-row pointer-fine:items-baseline pointer-fine:gap-2">
+                  <span className="text-[clamp(1.25rem,2.4vw,1.75rem)] leading-tight">{project.title}</span>
+                  <span className="label tabular-nums">
+                    {project.category}, {padCount(project.photos.length)}
+                  </span>
                 </span>
-              </button>
+              </Link>
             </li>
           );
         })}

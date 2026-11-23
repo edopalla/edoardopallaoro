@@ -28,8 +28,20 @@
 }
 
 html {
+  color-scheme: light;
   scroll-snap-type: y proximity;
   background: var(--color-paper);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 3px;
+}
+
+img {
+  -webkit-touch-callout: none;
 }
 
 body {
@@ -54,10 +66,17 @@ body {
   display: none;
 }
 
+.scroll-progress {
+  display: none;
+}
+
 @supports (animation-timeline: scroll()) {
-  .scroll-progress {
-    animation: progress linear both;
-    animation-timeline: scroll(root);
+  @media (min-width: 64rem) {
+    .scroll-progress {
+      display: block;
+      animation: progress linear both;
+      animation-timeline: scroll(root);
+    }
   }
 }
 

@@ -33,7 +33,7 @@ export function ProjectBlock({ project }: { project: Project }) {
     <section
       id={project.slug}
       aria-label={project.title}
-      className="flex min-h-svh snap-start flex-col items-center justify-center gap-5 px-4 pt-32 pb-12 [@media(max-height:500px)]:pt-24"
+      className="flex min-h-svh flex-col items-center justify-center gap-5 px-4 pt-32 pb-12 [@media(max-height:500px)]:pt-24"
     >
       <div
         onPointerMove={trackPointer}

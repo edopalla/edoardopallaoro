@@ -29,7 +29,6 @@
 
 html {
   color-scheme: light;
-  scroll-snap-type: y proximity;
   background: var(--color-paper);
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -90,10 +89,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-snap-type: none;
-  }
-
   *,
   *::before,
   *::after {

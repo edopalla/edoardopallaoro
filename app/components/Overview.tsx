@@ -18,7 +18,7 @@ export function Overview({ projects }: { projects: Project[] }) {
         const cover = project.cover;
         return (
           <Fragment key={project.slug}>
-            <figure className="shrink-0 snap-start">
+            <figure className="shrink-0">
               <Link href={`/${project.slug}`} aria-label={`Open ${project.title}`} className="block w-full">
                 <Image
                   src={cover.src}
